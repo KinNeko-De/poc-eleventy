@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node-terminal",
+      "name": "Start Eleventy Dev Server",
+      "request": "launch",
+      "command": "npx eleventy --serve",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "chrome",
+      "name": "Open Chrome to Eleventy Site",
+      "request": "launch",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Eleventy with Chrome",
+      "configurations": ["Start Eleventy Dev Server", "Open Chrome to Eleventy Site"]
+    }
+  ]
+}
