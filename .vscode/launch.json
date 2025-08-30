@@ -6,7 +6,8 @@
       "name": "Start Eleventy Dev Server",
       "request": "launch",
       "command": "npx eleventy --serve",
-      "cwd": "${workspaceFolder}"
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build Tailwind CSS"
     },
     {
       "type": "chrome",
