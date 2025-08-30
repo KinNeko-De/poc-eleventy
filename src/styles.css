@@ -12,6 +12,18 @@
   .grid-asymmetric {
     grid-template-columns: 1fr;
   }
+  
+  .grid-asymmetric > aside:first-child {
+    order: 2;
+  }
+  
+  .grid-asymmetric > main {
+    order: 1;
+  }
+  
+  .grid-asymmetric > aside:last-child {
+    order: 3;
+  }
 }
 
 .card-float {
