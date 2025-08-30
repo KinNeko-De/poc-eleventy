@@ -4,7 +4,7 @@
     {
       "label": "Build Tailwind CSS",
       "type": "shell",
-  "command": "npx @tailwindcss/cli -i src/styles.css -o _site/assets/tailwind.css --content \"./src/**/*.{njk,md,html,js}\"",
+      "command": "npx @tailwindcss/cli -i src/styles.css -o _site/assets/tailwind.css",
       "group": "build",
       "presentation": {
         "echo": true,
