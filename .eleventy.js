@@ -1,8 +1,4 @@
-import { HtmlBasePlugin } from "@11ty/eleventy";
-
 module.exports = function(eleventyConfig) {
-  // Needed for GitHub Pages because it runs in a subpath
-  eleventyConfig.addPlugin(HtmlBasePlugin);
   // Add passthrough copy for all files from src/assets
   eleventyConfig.addPassthroughCopy("src/assets");
 
