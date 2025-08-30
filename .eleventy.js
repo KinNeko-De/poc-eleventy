@@ -1,8 +1,7 @@
 module.exports = function(eleventyConfig) {
-  // Add passthrough copy for CSS files and favicon
-  eleventyConfig.addPassthroughCopy("src/tailwind.css");
-  eleventyConfig.addPassthroughCopy("src/favicon.ico");
-  
+  // Add passthrough copy for all files from src/assets
+  eleventyConfig.addPassthroughCopy("src/assets");
+
   eleventyConfig.addCollection("blog", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/blog/*.md").sort((a, b) => b.date - a.date);
   });
