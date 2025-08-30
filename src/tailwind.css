@@ -36,9 +36,3 @@
     }
   }
 }
-.focus\:outline-none {
-  &:focus {
-    --tw-outline-style: none;
-    outline-style: none;
-  }
-}
