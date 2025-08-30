@@ -1,6 +1,4 @@
 module.exports = function(eleventyConfig) {
-  // Need for pathPrefix parameter
-  eleventyConfig.addPlugin(HtmlBasePlugin);
   // Add passthrough copy for all files from src/assets
   eleventyConfig.addPassthroughCopy("src/assets");
 
