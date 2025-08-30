@@ -7,51 +7,6 @@
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="/assets/tailwind.css" rel="stylesheet">
-  <style>
-    /* Custom asymmetric grid and animations */
-    .grid-asymmetric {
-      display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
-      gap: 1.5rem;
-      min-height: calc(100vh - 8rem);
-    }
-    
-    @media (max-width: 768px) {
-      .grid-asymmetric {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    .card-float {
-      transform: translateY(0px);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    
-    .card-float:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    }
-    
-    .nav-floating {
-      backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .content-card {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-    
-    .accent-gradient {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-    
-    .sidebar-gradient {
-      background: linear-gradient(180deg, #f093fb 0%, #f5576c 100%);
-    }
-  </style>
 </head>
 <body class="bg-gradient-to-br from-indigo-50 via-white to-cyan-50 min-h-screen font-['Inter']">
   <!-- Floating Navigation -->
