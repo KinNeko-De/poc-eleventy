@@ -37,7 +37,7 @@ jobs:
         run: npm ci
 
       - name: Build Eleventy site
-        run: npx eleventy --verbose
+        run: npx eleventy
 
       - name: Generate Tailwind CSS into _site
         run: npx @tailwindcss/cli -i src/styles.css -o _site/assets/tailwind.css
