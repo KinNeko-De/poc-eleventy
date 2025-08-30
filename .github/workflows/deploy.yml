@@ -20,20 +20,14 @@ jobs:
       site-path: _site
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Use Node.js 20
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-
-      - name: Cache node modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
       - name: Setup Pages
         id: pages
@@ -49,7 +43,7 @@ jobs:
         run: npx @tailwindcss/cli -i src/styles.css -o _site/assets/tailwind.css
 
       - name: Upload built site for Pages
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4
         with:
           path: _site
 
@@ -62,4 +56,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
