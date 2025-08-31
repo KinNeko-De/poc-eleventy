@@ -113,6 +113,9 @@
   word-wrap: break-word;
   /* Ensure container itself can't overflow */
   overflow-x: hidden;
+  /* Additional mobile constraints */
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 @media (min-width: 640px) {
@@ -272,19 +275,33 @@
 .prose-blog pre {
   background: #1F2937;
   color: #F9FAFB;
-  padding: 1rem;
+  padding: 0.75rem;
   border-radius: 0.75rem;
   overflow-x: auto;
   margin: 1.5rem 0;
   border: 1px solid #374151;
-  max-width: 100%;
-  /* Ensure code blocks don't break container on mobile */
+  /* Force small width on mobile */
+  width: 280px;
+  max-width: 280px;
   box-sizing: border-box;
   white-space: pre;
   word-wrap: normal;
+  /* Force scroll for long lines */
+  overflow-y: hidden;
+  /* Prevent any expansion */
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 @media (min-width: 640px) {
+  .prose-blog pre {
+    padding: 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
   .prose-blog pre {
     padding: 1.5rem;
   }
