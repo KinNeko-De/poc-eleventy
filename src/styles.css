@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* Demo Banner */
+.demo-banner {
+  width: 120px;
+  text-align: center;
+  transform-origin: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 /* Line clamp utilities */
 .line-clamp-2 {
   display: -webkit-box;
