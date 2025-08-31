@@ -40,7 +40,7 @@ jobs:
         run: npx eleventy --pathprefix="${{ steps.pages.outputs.base_path }}"
 
       - name: Generate Tailwind CSS into _site
-        run: npx @tailwindcss/cli -i src/styles.css -o _site/assets/tailwind.css
+        run: npm run build:css
 
       - name: Upload built site for Pages
         uses: actions/upload-pages-artifact@v4

@@ -8,6 +8,7 @@
   },
   "main": "index.js",
   "scripts": {
+    "build:css": "npx @tailwindcss/cli -i src/styles.css -o _site/assets/tailwind.css"
   },
   "keywords": [],
   "author": "",
