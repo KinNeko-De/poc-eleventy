@@ -148,23 +148,6 @@
           }, 10);
         }
       });
-      
-      // Add scroll effect to floating nav using CSS classes
-      let lastScrollY = window.scrollY;
-      const header = document.querySelector('header');
-      const navContainer = header.querySelector('.nav-floating');
-      
-      window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        
-        if (scrollY > lastScrollY && scrollY > 100) {
-          navContainer.classList.add('nav-hidden');
-        } else {
-          navContainer.classList.remove('nav-hidden');
-        }
-        
-        lastScrollY = scrollY;
-      });
     })();
   </script>
 </body>

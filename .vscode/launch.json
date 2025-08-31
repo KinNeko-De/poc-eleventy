@@ -5,7 +5,7 @@
       "type": "node-terminal",
       "name": "Start Eleventy Dev Server",
       "request": "launch",
-      "command": "npx eleventy --serve",
+      "command": "npx eleventy --serve --watch",
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "Build Tailwind CSS"
     },
