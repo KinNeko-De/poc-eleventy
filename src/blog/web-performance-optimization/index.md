@@ -1,7 +1,7 @@
 ---
 title: Yet Another Post
 date: 2025-08-20
-layout: layout.njk
+layout: blog-layout.njk
 headline: Performance Optimization in Modern Web Applications
 subline: Learn Core Web Vitals, optimization strategies, and monitoring techniques to build lightning-fast web experiences
 featureImage: https://via.placeholder.com/400x200/F59E0B/FFFFFF?text=Web+Performance

@@ -1,7 +1,7 @@
 ---
 title: My First Blog Post
 date: 2025-08-01
-layout: layout.njk
+layout: blog-layout.njk
 headline: Getting Started with Modern Web Development
 subline: Explore essential technologies, best practices, and workflows that every modern web developer should master
 featureImage: /blog/getting-started-modern-web-dev/images/speedneeded.png
@@ -34,7 +34,7 @@ Here are the essential technologies every modern web developer should know:
    - MongoDB for document storage
    - Redis for caching
 
-![Modern Web Development](https://via.placeholder.com/600x300/4F46E5/FFFFFF?text=Modern+Web+Development)
+![Modern Web Development](images/speedneeded.png)
 
 ## Development Workflow
 
