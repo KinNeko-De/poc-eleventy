@@ -7,6 +7,7 @@ The layout now uses a modular card system where you can specify which cards appe
 ### **Core Cards** (in `cards/` directory)
 - `cards/quick-stats` - Shows project count and experience
 - `cards/latest-article` - Displays latest blog post info  
+- `cards/all-articles` - Overview of all articles with link to blog index
 - `cards/get-in-touch` - Contact call-to-action card
 - `cards/skills` - Technology skill tags
 - `cards/portfolio` - Link to portfolio/projects page
