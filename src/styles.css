@@ -77,6 +77,12 @@
   visibility: visible;
 }
 
+@media (min-width: 768px) {
+  .mobile-menu-overlay {
+    display: none !important;
+  }
+}
+
 .content-card {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(8px);
