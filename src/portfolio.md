@@ -1,6 +1,9 @@
 ---
 title: Portfolio
 layout: layout.njk
+sidebar:
+  leftCards: ['quick-stats', 'skills']
+  rightCards: ['latest-article', 'get-in-touch']
 ---
 
 ## Projects

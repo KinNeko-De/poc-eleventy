@@ -4,10 +4,18 @@ The layout now uses a modular card system where you can specify which cards appe
 
 ## Available Cards
 
+### **Core Cards**
 - `quick-stats` - Shows project count and experience
 - `latest-article` - Displays latest blog post info  
 - `get-in-touch` - Contact call-to-action card
 - `skills` - Technology skill tags
+- `portfolio` - Link to portfolio/projects page
+- `support` - Funding/support call-to-action
+
+### **Topic Series Cards**
+- `topic-web-dev` - Web Development article series (8 articles)
+- `topic-design` - Design Systems article series (5 articles)
+- `topic-performance` - Performance Tips article series (6 articles)
 
 ## Usage
 
