@@ -39,6 +39,9 @@
     </div>
   </header>
 
+  <!-- Mobile menu overlay -->
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
   <!-- Main Content Grid -->
   <div class="pt-24 px-6 pb-12">
     <div class="max-w-7xl mx-auto">
@@ -127,17 +130,25 @@
   </footer>
 
   <script>
-    // Enhanced burger menu with smooth animations
+    // Enhanced burger menu with smooth animations and overlay
     (function() {
       const burger = document.getElementById('burger');
       const mobileMenu = document.getElementById('mobile-menu');
-      if (!burger || !mobileMenu) return;
+      const overlay = document.getElementById('mobile-menu-overlay');
+      if (!burger || !mobileMenu || !overlay) return;
       
-      burger.addEventListener('click', () => {
+      function toggleMobileMenu() {
         const isHidden = mobileMenu.classList.toggle('hidden');
         burger.setAttribute('aria-expanded', String(!isHidden));
         
-        // Add smooth transition
+        // Toggle overlay
+        if (!isHidden) {
+          overlay.classList.add('active');
+        } else {
+          overlay.classList.remove('active');
+        }
+        
+        // Add smooth transition for menu
         if (!isHidden) {
           mobileMenu.style.opacity = '0';
           mobileMenu.style.transform = 'translateY(-10px)';
@@ -146,6 +157,16 @@
             mobileMenu.style.opacity = '1';
             mobileMenu.style.transform = 'translateY(0)';
           }, 10);
+        }
+      }
+      
+      // Burger button click
+      burger.addEventListener('click', toggleMobileMenu);
+      
+      // Overlay click to close menu
+      overlay.addEventListener('click', () => {
+        if (!mobileMenu.classList.contains('hidden')) {
+          toggleMobileMenu();
         }
       });
       
