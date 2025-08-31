@@ -1,7 +1,6 @@
-module.exports = async function(eleventyConfig) {
-  // Dynamically import Eleventy HtmlBase plugin to avoid ESM/CommonJS interop errors
-  const { HtmlBasePlugin } = await import('@11ty/eleventy');
+import { HtmlBasePlugin } from '@11ty/eleventy';
 
+export default async function(eleventyConfig) {
   // Needed for GitHub Pages because it runs in a subpath
   eleventyConfig.addPlugin(HtmlBasePlugin);
   // Add passthrough copy for all files from src/assets

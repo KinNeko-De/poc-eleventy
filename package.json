@@ -1,6 +1,7 @@
 {
   "name": "poc-eleventy",
   "version": "1.0.0",
+  "type": "module",
   "engines": {
     "node": ">=22 <23",
     "npm": ">=10 <11"
