@@ -4,7 +4,7 @@ date: 2025-08-20
 layout: layout.njk
 headline: Performance Optimization in Modern Web Applications
 subline: Learn Core Web Vitals, optimization strategies, and monitoring techniques to build lightning-fast web experiences
-featureImage: /blog/web-performance-optimization/hero.jpg
+featureImage: https://via.placeholder.com/400x200/F59E0B/FFFFFF?text=Web+Performance
 ---
 
 # Performance Optimization in Modern Web Applications
@@ -20,7 +20,7 @@ Web performance directly impacts user experience and business metrics:
 - **Conversion Rates**: Amazon found that 100ms delay costs them 1% in sales
 - **Accessibility**: Better performance helps users with slow connections
 
-![Web Performance Metrics](./performance-chart.png)
+![Web Performance Metrics](https://via.placeholder.com/600x350/F59E0B/FFFFFF?text=Web+Performance+Metrics)
 
 ## Core Web Vitals
 

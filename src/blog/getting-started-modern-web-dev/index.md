@@ -34,7 +34,7 @@ Here are the essential technologies every modern web developer should know:
    - MongoDB for document storage
    - Redis for caching
 
-![Modern Web Development](./workflow-diagram.png)
+![Modern Web Development](https://via.placeholder.com/600x300/4F46E5/FFFFFF?text=Modern+Web+Development)
 
 ## Development Workflow
 

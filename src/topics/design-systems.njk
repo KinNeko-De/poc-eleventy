@@ -1,0 +1,53 @@
+---
+title: Design Systems Series
+layout: layout.njk
+sidebar:
+  leftCards: ['cards/all-articles', 'cards/topics/topic-web-dev', 'cards/topics/topic-performance']
+  rightCards: ['cards/support', 'cards/get-in-touch']
+seriesPosts:
+  - css-grid-layouts
+---
+
+<div class="mb-8">
+  <h1 class="text-4xl font-bold text-gray-900 mb-4">Design Systems Series</h1>
+  <p class="text-xl text-gray-600 leading-relaxed">
+    Learn how to build scalable, consistent design systems that enhance user experience and developer productivity.
+  </p>
+</div>
+
+<div class="space-y-8">
+  {% for postSlug in seriesPosts %}
+    {% set post = collections.blog | find("page.fileSlug", postSlug) %}
+    {% if post %}
+      <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+        <div class="md:flex">
+          <div class="md:w-1/3">
+            <img src="{{ post.data.featureImage }}" 
+                 alt="{{ post.data.headline }}" 
+                 class="w-full h-48 md:h-full object-cover">
+          </div>
+          <div class="md:w-2/3 p-6">
+            <div class="text-gray-500 text-sm mb-2">
+              {{ post.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-3">
+              <a href="{{ post.url }}" class="hover:text-indigo-600 transition-colors">
+                {{ post.data.headline }}
+              </a>
+            </h2>
+            <p class="text-gray-600 text-lg leading-relaxed mb-4">
+              {{ post.data.subline }}
+            </p>
+            <a href="{{ post.url }}" 
+               class="inline-flex items-center text-indigo-600 hover:text-indigo-700 font-medium transition-colors">
+              Read more
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+    {% endif %}
+  {% endfor %}
+</div>
