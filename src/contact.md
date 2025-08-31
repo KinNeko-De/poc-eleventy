@@ -1,6 +1,9 @@
 ---
 title: Contact
 layout: layout.njk
+sidebar:
+  leftCards: ['quick-stats', 'latest-article']
+  rightCards: ['skills']
 ---
 
 ## Contact Me

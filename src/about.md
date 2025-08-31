@@ -1,6 +1,9 @@
 ---
 title: About
 layout: layout.njk
+sidebar:
+  leftCards: ['latest-article']
+  rightCards: ['quick-stats', 'skills', 'get-in-touch']
 ---
 
 ## About Me
