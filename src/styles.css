@@ -101,6 +101,21 @@
   background: linear-gradient(180deg, #f093fb 0%, #f5576c 100%);
 }
 
+/* Blog container wrapper for mobile safety */
+.blog-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+@media (max-width: 639px) {
+  .blog-container {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
 /* Blog-specific markdown styles */
 .prose-blog {
   max-width: 100%;
@@ -275,14 +290,14 @@
 .prose-blog pre {
   background: #1F2937;
   color: #F9FAFB;
-  padding: 0.75rem;
+  padding: 0.5rem;
   border-radius: 0.75rem;
   overflow-x: auto;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   border: 1px solid #374151;
-  /* Force small width on mobile */
-  width: 280px;
-  max-width: 280px;
+  /* Very small width on mobile */
+  width: 200px;
+  max-width: 200px;
   box-sizing: border-box;
   white-space: pre;
   word-wrap: normal;
@@ -291,6 +306,9 @@
   /* Prevent any expansion */
   min-width: 0;
   flex-shrink: 1;
+  /* Additional mobile safety */
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 640px) {
@@ -298,6 +316,7 @@
     padding: 1rem;
     width: 100%;
     max-width: 100%;
+    margin: 1.5rem 0;
   }
 }
 
