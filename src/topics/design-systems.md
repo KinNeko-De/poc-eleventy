@@ -2,8 +2,8 @@
 title: Design Systems Series
 layout: layout.njk
 sidebar:
-  leftCards: ['topic-web-dev', 'topic-performance']
-  rightCards: ['support', 'get-in-touch']
+  leftCards: ['cards/topics/topic-web-dev', 'cards/topics/topic-performance']
+  rightCards: ['cards/support', 'cards/get-in-touch']
 ---
 
 # Design Systems Series

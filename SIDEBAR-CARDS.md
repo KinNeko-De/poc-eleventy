@@ -4,50 +4,51 @@ The layout now uses a modular card system where you can specify which cards appe
 
 ## Available Cards
 
-### **Core Cards**
-- `quick-stats` - Shows project count and experience
-- `latest-article` - Displays latest blog post info  
-- `get-in-touch` - Contact call-to-action card
-- `skills` - Technology skill tags
-- `portfolio` - Link to portfolio/projects page
-- `support` - Funding/support call-to-action
+### **Core Cards** (in `cards/` directory)
+- `cards/quick-stats` - Shows project count and experience
+- `cards/latest-article` - Displays latest blog post info  
+- `cards/get-in-touch` - Contact call-to-action card
+- `cards/skills` - Technology skill tags
+- `cards/portfolio` - Link to portfolio/projects page
+- `cards/support` - Funding/support call-to-action
+- `cards/github` - GitHub profile promotion
 
-### **Topic Series Cards**
-- `topic-web-dev` - Web Development article series (8 articles)
-- `topic-design` - Design Systems article series (5 articles)
-- `topic-performance` - Performance Tips article series (6 articles)
+### **Topic Series Cards** (in `cards/topics/` directory)
+- `cards/topics/topic-web-dev` - Web Development article series (8 articles)
+- `cards/topics/topic-design` - Design Systems article series (5 articles)
+- `cards/topics/topic-performance` - Performance Tips article series (6 articles)
 
 ## Usage
 
 ### Default Layout (if no sidebar config specified)
-- Left sidebar: `['quick-stats', 'latest-article']`
-- Right sidebar: `['get-in-touch', 'skills']`
+- Left sidebar: `['cards/quick-stats', 'cards/latest-article']`
+- Right sidebar: `['cards/get-in-touch', 'cards/skills']`
 
 ### Custom Configuration
-Add to your page frontmatter:
+Add to your page frontmatter using full paths:
 
 ```yaml
 ---
 title: Your Page
 layout: layout.njk
 sidebar:
-  leftCards: ['latest-article']
-  rightCards: ['quick-stats', 'skills', 'get-in-touch']
+  leftCards: ['cards/latest-article']
+  rightCards: ['cards/quick-stats', 'cards/skills', 'cards/get-in-touch']
 ---
+```
+
+### Using Topic Cards
+```yaml
+sidebar:
+  leftCards: ['cards/latest-article', 'cards/topics/topic-web-dev', 'cards/topics/topic-design']
+  rightCards: ['cards/support', 'cards/get-in-touch']
 ```
 
 ### Hide All Cards on One Side
 ```yaml
 sidebar:
   leftCards: []
-  rightCards: ['skills']
-```
-
-### Use All Cards on One Side
-```yaml
-sidebar:
-  leftCards: ['quick-stats', 'latest-article', 'get-in-touch', 'skills']
-  rightCards: []
+  rightCards: ['cards/skills']
 ```
 
 ## Examples

@@ -2,8 +2,8 @@
 title: Web Development Series
 layout: layout.njk
 sidebar:
-  leftCards: ['topic-design', 'topic-performance']
-  rightCards: ['support', 'get-in-touch']
+  leftCards: ['cards/topics/topic-design', 'cards/topics/topic-performance']
+  rightCards: ['cards/support', 'cards/get-in-touch']
 ---
 
 # Web Development Series

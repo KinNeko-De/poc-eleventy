@@ -2,8 +2,8 @@
 title: Performance Tips Series
 layout: layout.njk
 sidebar:
-  leftCards: ['topic-web-dev', 'topic-design']
-  rightCards: ['support', 'get-in-touch']
+  leftCards: ['cards/topics/topic-web-dev', 'cards/topics/topic-design']
+  rightCards: ['cards/support', 'cards/get-in-touch']
 ---
 
 # Performance Tips Series

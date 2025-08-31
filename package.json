@@ -8,7 +8,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "build:css": "npx @tailwindcss/cli -i src/styles.css -o _site/assets/tailwind.css"
+    "build:css": "npx @tailwindcss/cli -i src/styles.css -o _site/assets/tailwind.css",
+    "build": "npm run build:css && npx eleventy",
+    "dev": "npm run build:css && npx eleventy --serve --watch"
   },
   "keywords": [],
   "author": "",
