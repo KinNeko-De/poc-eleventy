@@ -4,7 +4,7 @@ date: 2025-08-10
 layout: layout.njk
 headline: Building Responsive Web Layouts with CSS Grid
 subline: Master CSS Grid fundamentals, responsive patterns, and advanced techniques for creating modern web layouts
-featureImage: https://via.placeholder.com/400x200/10B981/FFFFFF?text=CSS+Grid+Layouts
+featureImage: /blog/css-grid-layouts/hero.jpg
 ---
 
 # Building Responsive Web Layouts with CSS Grid
@@ -17,7 +17,7 @@ CSS Grid is a powerful layout system that allows you to create complex, responsi
 
 ### Why Choose CSS Grid?
 
-![CSS Grid Layout](https://via.placeholder.com/600x400/10B981/FFFFFF?text=CSS+Grid+Layout)
+![CSS Grid Layout](./grid-example.png)
 
 CSS Grid offers several advantages:
 
