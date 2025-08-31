@@ -26,11 +26,9 @@
   }
 }
 
-.card-float {
-}
-
-.card-float:hover {
+.card-float.content-card:hover {
   background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.4);
 }
 
 .nav-floating {
