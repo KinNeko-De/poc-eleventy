@@ -1,0 +1,28 @@
+---
+title: Scalar Types Reference
+layout: layout.njk
+permalink: "/api/scalars/"
+---
+
+<h1 class="text-3xl font-bold mb-8">Scalar Types Reference</h1>
+
+{% set scalars = apiPackages.scalarTypes %}
+<div class="space-y-6">
+  {% for scalar in scalars %}
+    <div class="bg-gray-50 rounded-xl border border-gray-200 p-6" id="scalar-{{ scalar.protoType }}">
+      <div class="flex items-center gap-4 mb-2">
+        <span class="font-mono font-bold text-green-800 text-lg">{{ scalar.protoType }}</span>
+        {% if scalar.notes %}<span class="text-xs text-gray-500">{{ scalar.notes }}</span>{% endif %}
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-700">
+        <div><span class="font-semibold">C++:</span> {{ scalar.cppType }}</div>
+        <div><span class="font-semibold">C#:</span> {{ scalar.csType }}</div>
+        <div><span class="font-semibold">Go:</span> {{ scalar.goType }}</div>
+        <div><span class="font-semibold">Java:</span> {{ scalar.javaType }}</div>
+        <div><span class="font-semibold">PHP:</span> {{ scalar.phpType }}</div>
+        <div><span class="font-semibold">Python:</span> {{ scalar.pythonType }}</div>
+        <div><span class="font-semibold">Ruby:</span> {{ scalar.rubyType }}</div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

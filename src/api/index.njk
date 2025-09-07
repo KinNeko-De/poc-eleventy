@@ -71,10 +71,13 @@ permalink: "/api/{{ pkg | slug }}/"
                 <div class="text-gray-700 min-w-[7rem] break-all">
                   {% if field.fullType.startsWith('com.example.') %}
                     <a href="#{{ field.fullType }}" class="text-blue-700 hover:underline">{{ field.type }}</a>
+                  {% elif apiPackages.scalarTypeMap[field.type] %}
+                    <a href="/api/scalars/#scalar-{{ field.type }}" class="text-green-700 hover:underline">{{ field.type }}</a>
                   {% else %}
                     {{ field.type }}
                   {% endif %}
                 </div>
+
                 <div class="text-gray-500 text-xs min-w-[5rem]">{{ field.label }}</div>
                 <div class="flex-1 text-gray-700">{{ field.description }}</div>
               </div>
