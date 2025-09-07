@@ -1,9 +1,6 @@
-import fs from 'fs';
-import path from 'path';
+import api from './api.json' with { type: 'json' };
 
-export default function () {
-  const apiPath = path.resolve(process.cwd(), 'src', '_data', 'api.json');
-  const api = JSON.parse(fs.readFileSync(apiPath, 'utf-8'));
+export default async function () {
   const files = api.files;
   const packages = Array.from(new Set(files.map(f => f.package)));
   const scalarTypes = api.scalarValueTypes || [];
