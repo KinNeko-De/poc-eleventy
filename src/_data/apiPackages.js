@@ -1,10 +1,12 @@
+import fs from 'fs';
+import path from 'path';
 
-
-export default async function () {
-  const api = await import('./api.json', { assert: { type: 'json' } });
-  const files = api.default.files;
+export default function () {
+  const apiPath = path.resolve(process.cwd(), 'src', '_data', 'api.json');
+  const api = JSON.parse(fs.readFileSync(apiPath, 'utf-8'));
+  const files = api.files;
   const packages = Array.from(new Set(files.map(f => f.package)));
-  const scalarTypes = api.default.scalarValueTypes || [];
+  const scalarTypes = api.scalarValueTypes || [];
   const scalarTypeMap = Object.fromEntries(scalarTypes.map(t => [t.protoType, t]));
   return {
     packages,
