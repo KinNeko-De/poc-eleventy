@@ -1,0 +1,87 @@
+---
+title: API Reference
+layout: layout.njk
+pagination:
+  data: apiPackages.packages
+  size: 1
+  alias: pkg
+permalink: "/api/{{ pkg | slug }}/"
+---
+
+<h1 class="text-3xl font-bold mb-6">API Reference: {{ pkg }}</h1>
+{% set files = apiPackages.filesByPackage[pkg] %}
+
+{# --- SERVICES --- #}
+{% set allServices = [] %}
+{% for file in files %}
+  {% for service in file.services %}
+    {% set allServices = allServices.concat([service]) %}
+  {% endfor %}
+{% endfor %}
+{% if allServices.length %}
+  <h2 class="text-2xl font-semibold mt-10 mb-4">Services</h2>
+  <div class="space-y-6">
+    {% for service in allServices %}
+      <div class="bg-white rounded-xl shadow p-6 border border-gray-200">
+        <h3 class="text-xl font-bold mb-2">{{ service.name }}</h3>
+        <p class="mb-3 text-gray-600">{{ service.description }}</p>
+        {% if service.methods.length %}
+          <ul class="space-y-3">
+            {% for method in service.methods %}
+              <li class="bg-gray-50 rounded p-3 border border-gray-100">
+                <div class="font-semibold text-indigo-700">{{ method.name }}</div>
+                <div class="text-gray-700 text-sm mb-1">{{ method.description }}</div>
+                <div class="text-xs text-gray-500 mb-1">Request: <a href="#{{ method.requestFullType }}" class="text-blue-700 hover:underline">{{ method.requestType }}</a> | Response: <a href="#{{ method.responseFullType }}" class="text-blue-700 hover:underline">{{ method.responseType }}</a></div>
+                {% if method.options.google.api.http %}
+                  <div class="text-xs text-blue-700">HTTP: {{ method.options.google.api.http.rules[0].method }} {{ method.options.google.api.http.rules[0].pattern }}</div>
+                {% endif %}
+                {% if method.responseStreaming %}
+                  <span class="text-xs text-purple-700 ml-2">(streaming)</span>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{# --- MESSAGES --- #}
+{% set allMessages = [] %}
+{% for file in files %}
+  {% for message in file.messages %}
+    {% set allMessages = allMessages.concat([message]) %}
+  {% endfor %}
+{% endfor %}
+{% if allMessages.length %}
+  <h2 class="text-2xl font-semibold mt-12 mb-4">Messages</h2>
+  <div class="space-y-6">
+    {% for message in allMessages %}
+      <div class="bg-white rounded-xl shadow p-6 border border-gray-200 mb-4" id="{{ message.fullName }}">
+        <h3 class="text-lg font-bold mb-1">{{ message.name }}</h3>
+        <p class="mb-3 text-gray-600">{{ message.description }}</p>
+        {% if message.fields.length %}
+          <div class="divide-y divide-gray-100">
+            {% for field in message.fields %}
+              <div class="flex flex-col sm:flex-row flex-wrap py-2 gap-2 items-start">
+                <div class="font-mono font-semibold text-indigo-800 min-w-[8rem] break-all">{{ field.name }}</div>
+                <div class="text-gray-700 min-w-[7rem] break-all">
+                  {% if field.fullType.startsWith('com.example.') %}
+                    <a href="#{{ field.fullType }}" class="text-blue-700 hover:underline">{{ field.type }}</a>
+                  {% elif apiPackages.scalarTypeMap[field.type] %}
+                    <a href="/api/scalars/#scalar-{{ field.type }}" class="text-green-700 hover:underline">{{ field.type }}</a>
+                  {% else %}
+                    {{ field.type }}
+                  {% endif %}
+                </div>
+                <div class="text-gray-500 text-xs min-w-[5rem]">{{ field.label }}</div>
+                <div class="flex-1 text-gray-700">{{ field.description }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
