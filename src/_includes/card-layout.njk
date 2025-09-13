@@ -1,0 +1,29 @@
+---
+layout: layout.njk
+---
+
+<div class="grid-asymmetric">
+  <!-- Left Sidebar -->
+  <aside class="space-y-6">
+    {% set leftSidebarCards = sidebar.leftCards or ['cards/quick-stats', 'cards/latest-article'] %}
+    {% for cardPath in leftSidebarCards %}
+      {% include cardPath + ".njk" %}
+    {% endfor %}
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content-card rounded-3xl p-8 shadow-xl">
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+  </main>
+
+  <!-- Right Sidebar -->
+  <aside class="space-y-6">
+    {% set rightSidebarCards = sidebar.rightCards or ['cards/get-in-touch', 'cards/skills'] %}
+    {% for cardPath in rightSidebarCards %}
+      {% include cardPath + ".njk" %}
+    {% endfor %}
+  </aside>
+</div>
+
