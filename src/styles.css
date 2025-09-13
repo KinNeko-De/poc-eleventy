@@ -20,7 +20,7 @@
 /* Custom asymmetric grid and animations */
 .grid-asymmetric {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 2.5fr 1fr;
   gap: 1.5rem;
   min-height: calc(100vh - 8rem);
 }
