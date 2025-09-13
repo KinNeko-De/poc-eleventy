@@ -25,6 +25,13 @@ permalink: "/api/{{ pkg | slug }}/"
       <div class="bg-white rounded-xl shadow p-6 border border-gray-200">
         <h3 class="text-xl font-bold mb-2">{{ service.name }}</h3>
         <p class="mb-3 text-gray-600">{{ service.description }}</p>
+        {# Include manual documentation if available #}
+        {% set manualDocPath = 'src/manual-docs/services/' + service.name + '.md' %}
+        {% if manualDocPath | exists %}
+          <div class="prose prose-blog mt-4">
+            {{ manualDocPath | readFileSync | markdown | safe }}
+          </div>
+        {% endif %}
         {% if service.methods.length %}
           <ul class="space-y-3">
             {% for method in service.methods %}

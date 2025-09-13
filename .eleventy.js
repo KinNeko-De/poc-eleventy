@@ -22,6 +22,23 @@ export default async function(eleventyConfig) {
     });
   });
 
+  // Manual docs filters
+  const fs = await import('fs');
+  const markdownIt = (await import('markdown-it')).default;
+  eleventyConfig.addFilter('exists', function(filePath) {
+    return fs.existsSync(filePath);
+  });
+  eleventyConfig.addFilter('readFileSync', function(filePath) {
+    if (fs.existsSync(filePath)) {
+      return fs.readFileSync(filePath, 'utf8');
+    }
+    return '';
+  });
+  const md = new markdownIt({ html: true, linkify: true, typographer: true });
+  eleventyConfig.addFilter('markdown', function(content) {
+    return md.render(content || '');
+  });
+
   eleventyConfig.addCollection("blog", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/blog/**/index.md").sort((a, b) => b.date - a.date);
   });
