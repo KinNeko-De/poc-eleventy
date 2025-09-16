@@ -1,9 +1,8 @@
 name: Build and deploy site to GitHub Pages
 
 on:
-  push:
-    branches: [ main ]
-
+  push
+  
 permissions:
   contents: read
   pages: write
