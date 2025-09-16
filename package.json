@@ -16,14 +16,12 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "dependencies": {
-  },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
+    "@tailwindcss/cli": "^4.1.13",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
-    "tailwindcss": "^4.1.12",
-    "@tailwindcss/cli": "^4.1.12"
+    "tailwindcss": "^4.1.12"
   }
 }
