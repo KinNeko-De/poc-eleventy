@@ -38,7 +38,7 @@
           <a href="/api/" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors">API</a>
         </nav>
       </div>
-      <nav id="mobile-menu" class="md:hidden hidden flex flex-col space-y-3 mt-4 pb-2">
+      <nav id="mobile-menu" class="md:hidden hidden opacity-0 -translate-y-2 pointer-events-none transition-all duration-300 ease-out transform origin-top flex flex-col space-y-3 mt-4 pb-2" aria-hidden="true">
         <a href="/" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors block text-center">Home</a>
         <a href="/about/" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors block text-center">About</a>
         <a href="/skills/" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors block text-center">Skills</a>
@@ -51,7 +51,7 @@
   </header>
 
   <!-- Mobile menu overlay -->
-  <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay hidden"></div>
 
   <!-- Main Content Grid -->
   <div class="pt-24 px-6 pb-12 flex-1">
@@ -78,58 +78,49 @@
   </footer>
 
   <script>
-    // Enhanced burger menu with smooth animations and overlay
+    // Mobile menu: CSS-driven animations, JS toggles classes and handles accessibility
     (function() {
       const burger = document.getElementById('burger');
       const mobileMenu = document.getElementById('mobile-menu');
       const overlay = document.getElementById('mobile-menu-overlay');
       if (!burger || !mobileMenu || !overlay) return;
-      
-      function toggleMobileMenu() {
-        const isHidden = mobileMenu.classList.toggle('hidden');
-        burger.setAttribute('aria-expanded', String(!isHidden));
-        
-        // Toggle overlay
-        if (!isHidden) {
+
+      function openMenu() {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        overlay.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          mobileMenu.classList.remove('opacity-0', '-translate-y-2', 'pointer-events-none');
+          mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+          burger.setAttribute('aria-expanded', 'true');
           overlay.classList.add('active');
-        } else {
-          overlay.classList.remove('active');
-        }
-        
-        // Add smooth transition for menu
-        if (!isHidden) {
-          mobileMenu.style.opacity = '0';
-          mobileMenu.style.transform = 'translateY(-10px)';
-          setTimeout(() => {
-            mobileMenu.style.transition = 'all 0.3s ease';
-            mobileMenu.style.opacity = '1';
-            mobileMenu.style.transform = 'translateY(0)';
-          }, 10);
-        }
+          const first = mobileMenu.querySelector('a'); if (first) first.focus();
+        });
       }
-      
-      // Burger button click
+
+      function closeMenu() {
+        mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        mobileMenu.classList.add('opacity-0', '-translate-y-2', 'pointer-events-none');
+        burger.setAttribute('aria-expanded', 'false');
+        overlay.classList.remove('active');
+        const onEnd = (e) => {
+          if (e.target !== mobileMenu) return;
+          mobileMenu.classList.add('hidden');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+          overlay.classList.add('hidden');
+          mobileMenu.removeEventListener('transitionend', onEnd);
+        };
+        mobileMenu.addEventListener('transitionend', onEnd);
+      }
+
+      function toggleMobileMenu() { if (mobileMenu.classList.contains('hidden')) openMenu(); else closeMenu(); }
+
       burger.addEventListener('click', toggleMobileMenu);
-      
-      // Overlay click to close menu
-      overlay.addEventListener('click', () => {
-        if (!mobileMenu.classList.contains('hidden')) {
-          toggleMobileMenu();
-        }
-      });
-      
-      // Add scroll effect to adjust navigation padding
+      overlay.addEventListener('click', () => { if (!mobileMenu.classList.contains('hidden')) closeMenu(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) closeMenu(); });
+
       const header = document.querySelector('header');
-      
-      window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        
-        if (scrollY > 50) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-      });
+      window.addEventListener('scroll', () => { const scrollY = window.scrollY; if (scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled'); });
     })();
   </script>
 </body>
